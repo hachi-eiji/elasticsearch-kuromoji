@@ -1,6 +1,6 @@
-FROM docker.elastic.co/elasticsearch/elasticsearch:5.5.3
+FROM elasticsearch:2.4.6-alpine
 
 MAINTAINER hachi-eiji<hachiyae@gmail.com>
 
-COPY --chown=elasticsearch:elasticsearch elasticsearch.yml /usr/share/elasticsearch/config/
-RUN bin/elasticsearch-plugin install analysis-kuromoji
+RUN plugin install analysis-kuromoji
+RUN plugin install analysis-icu
